@@ -1,0 +1,153 @@
+﻿@model FinalProject.ViewModels.SignupViewModel
+<html>
+<head>
+    <style>
+        :root {
+            --input-padding-x: 1.5rem;
+            --input-padding-y: .75rem;
+        }
+
+        body {
+            background: #648880;
+            background: linear-gradient(#e66465, #9198e5);
+        }
+
+        .card-signin {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        }
+
+            .card-signin .card-title {
+                margin-bottom: 2rem;
+                font-weight: 300;
+                font-size: 1.5rem;
+            }
+
+            .card-signin .card-body {
+                padding: 2rem;
+            }
+
+        .form-signin {
+            width: 100%;
+        }
+
+            .form-signin .btn {
+                font-size: 80%;
+                border-radius: 5rem;
+                letter-spacing: .1rem;
+                font-weight: bold;
+                padding: 1rem;
+                transition: all 0.2s;
+            }
+
+        .form-label-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+            .form-label-group input {
+                height: auto;
+                border-radius: 2rem;
+            }
+
+            .form-label-group > input,
+            .form-label-group > label {
+                padding: var(--input-padding-y) var(--input-padding-x);
+            }
+
+            .form-label-group > label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                margin-bottom: 0;
+                /* Override default `<label>` margin */
+                line-height: 1.5;
+                color: #495057;
+                border: 1px solid transparent;
+                border-radius: .25rem;
+                transition: all .1s ease-in-out;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Pharmacy Registration Form</h3>
+                        <form asp-controller="Account" asp-action="Signup" method="post">
+                            <div asp-validation-summary="All" style="color:red;"></div>
+                            <div class="form-group">
+
+                                <label asp-for="PharmacyName"></label>
+                                <input asp-for="PharmacyName" class="form-control" placeholder="Enter Name of Pharmacy" />
+                                <span asp-validation-for="PharmacyName" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" placeholder="Enter Email" />
+                                <span asp-validation-for="Email" style="color:red;"></span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" placeholder="Enter Password" />
+                                <span asp-validation-for="Password" style="color:red;"></span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label asp-for="Verfiy"></label>
+                                <input asp-for="Verfiy" class="form-control" placeholder="Enter Password to confirme" />
+                                <span asp-validation-for="Verfiy" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label asp-for="DEANumber"></label>
+                                <input asp-for="DEANumber" class="form-control" placeholder="Enter Durg Enforcement Agency Number" />
+                                <span asp-validation-for="DEANumber" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NPINumber"></label>
+                                <input asp-for="NPINumber" class="form-control" placeholder="Enter National Provider Identifier Number" />
+                                <span asp-validation-for="NPINumber" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="StreetNumberAndName"></label>
+                                <input asp-for="StreetNumberAndName" class="form-control" placeholder="Enter Street Number and StreetName" />
+                                <span asp-validation-for="StreetNumberAndName" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="City"></label>
+                                <input asp-for="City" class="form-control" placeholder="Enter City Name" />
+                                <span asp-validation-for="City" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="State"></label>
+                                <input asp-for="State" class="form-control" placeholder="Enter State name" />
+                                <span asp-validation-for="State" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ZipCode"></label>
+                                <input asp-for="ZipCode" class="form-control" placeholder="Enter ZipCode" />
+                                <span asp-validation-for="ZipCode" style="color:red;"></span>
+                            </div>
+
+                            <input type="submit" value=" SignUp" />
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

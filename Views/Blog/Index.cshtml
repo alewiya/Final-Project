@@ -1,0 +1,67 @@
+﻿@model IList<FinalProject.Models.Blog>
+    <html>
+    <head>
+        
+        <style>
+            header.masthead {
+                margin-bottom: 50px;
+                background: no-repeat center center;
+                background-color: #868e96;
+                background-attachment: scroll;
+                position: relative;
+                background-size: cover;
+            }
+
+                header.masthead .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-color: #212529;
+                    opacity: 0.5;
+                }
+
+                header.masthead .page-heading,
+                header.masthead .post-heading,
+                header.masthead .site-heading {
+                    padding: 200px 0 150px;
+                    color: white;
+                }
+        </style>
+    </head>
+    <body>
+        <p><a asp-action="AddPost" asp-controller="Blog">Create New Post</a></p>
+        <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+            @foreach (var blog in Model)
+            {
+
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="post-heading">
+                                <h2>Medicine Name</h2>
+                                <h3>@blog.MedicineName</h3>
+
+                                @if (blog.Name != null)
+                                {
+                                    @:Posted by<i>@blog.Name</i>
+                                }
+                                <p>@blog.Description</p>
+                                <h4>Address</h4>
+                                <p>@blog.StreetNumberAndName,@blog.City,@blog.State,@blog.ZipCode</p>
+                                <h4>Posted on </h4><i>@blog.PostTime</i>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        </header>
+</body>
+    </html>
+

@@ -1,0 +1,12 @@
+﻿@model List<FinalProject.Models.User>
+@{
+}
+<h1>Users Name</h1>
+
+<ul>
+    @foreach (var user in Model)
+
+    {
+        <li><a asp-controller="Blog" asp-action="Users" asp-route-id="@user.ID">@user.Name</a></li>
+    }
+</ul>

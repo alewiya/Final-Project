@@ -38,7 +38,7 @@ namespace FinalProject
             });
             services.AddDbContext<AccountDbContext>(options =>
      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.Configure<CookiePolicyOptions>(options =>
+           /* services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.  
                 options.CheckConsentNeeded = context => true;
@@ -47,7 +47,7 @@ namespace FinalProject
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie( //CookieAuthenticationDefaults.AuthenticationScheme,
                     options => {
                         options.LoginPath = "/Account/Login";//create path so that to use this path instead of the defualt route.
-                    });
+                    });*/
             services.AddControllersWithViews();
             services.AddMvc();
 

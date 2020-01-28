@@ -120,7 +120,7 @@
                                     <input asp-for="ZipCode" class="form-control" placeholder="Enter Zipcode" />
                                     <span asp-validation-for="ZipCode" style="color:red;"></span>
                                 </div>
-                                <input type="hidden" value="@Model.UserID" name="UserID" />
+                                <input type="hidden" asp-for="UserID" value="@Model.UserID" />
                                 <input type="submit" value="Create Post" />
                             </form>
                         </div>

@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
- [Authorize]
+ //[Authorize]
     public class UsersController : Controller
     {
         // GET: /<controller>/
@@ -23,7 +23,7 @@ namespace FinalProject.Controllers
         {
            this.context = dbContext;
         }
-       [Authorize]
+       //[Authorize]
         public IActionResult Index()
         {
             List<User> users= context.Users.ToList();

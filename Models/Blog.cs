@@ -17,7 +17,7 @@ namespace FinalProject.Models
         public int ID { get; set; }
        //foregin key
         public int UserID { get; set; }
-        public User Users { get; set; }//navgation property
+        public User User { get; set; }//navgation property
         public string Name { get; set; }
     }
 }

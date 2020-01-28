@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
-    [Authorize]
+    //[Authorize]
    
    
     public class BlogController : Controller
@@ -27,13 +27,15 @@ namespace FinalProject.Controllers
 
         public IActionResult Index()
         {
-            IList<Blog> blogs = context.Blogs.Include(p => p.Users).ToList();
+            IList<Blog> blogs = context.Blogs.Include(p => p.User).ToList();
             return View(blogs);
         }
        
-        public IActionResult AddPost()
+        public IActionResult AddPost(string name)
         {
             NewPostViewModel newPost = new NewPostViewModel();
+            User newUser = context.Users.Single(x => x.Name == name);
+            newPost.UserID = newUser.ID;
             return View(newPost);
         }
     
@@ -42,7 +44,7 @@ namespace FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                User newUser = context.Users.Single(x => x.ID == model.UserID);
+                User user = context.Users.Where(u => u.ID == model.UserID).FirstOrDefault();
                 Blog newPost = new Blog
                 {
 
@@ -53,7 +55,8 @@ namespace FinalProject.Controllers
                     State = model.State,
                     ZipCode = model.ZipCode,
                     PostTime = DateTime.Now,
-                    Users=newUser
+                    UserID=model.UserID,
+                    User= user
                 };
                 context.Blogs.Add(newPost);
                 context.SaveChanges();

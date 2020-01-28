@@ -36,7 +36,7 @@
                         <li class="nav-item dropdown  ">
                             <a class="nav-link text-dark" asp-controller="Account" class="nav-link dropdown-toggle" data-toggle="dropdown">Drug Disposal</a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" asp-controller="Blog" asp-action="AddPost">PickUp</a>
+                                <a class="dropdown-item" asp-controller="Blog" asp-action="AddPost" asp-route-name="@userId">PickUp</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-controller="Blog" asp-action="Place">Drop off</a>
                             </div>

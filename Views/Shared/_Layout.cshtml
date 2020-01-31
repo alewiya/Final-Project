@@ -18,7 +18,7 @@
 
         }
     }
-    <header>
+<header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-info border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Users" asp-action="Index">Home</a>
@@ -36,9 +36,9 @@
                         <li class="nav-item dropdown  ">
                             <a class="nav-link text-dark" asp-controller="Account" class="nav-link dropdown-toggle" data-toggle="dropdown">Drug Disposal</a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" asp-controller="Blog" asp-action="AddPost" asp-route-name="@userId">PickUp</a>
+                                <a class="dropdown-item" asp-controller="Blog" asp-action="AddPost" asp-route-name="@User.Identity.Name">PickUp</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" asp-controller="Blog" asp-action="Place">Drop off</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Map">Drop off</a>
                             </div>
 
 
@@ -54,7 +54,9 @@
                                 <span class="glyphicon glyphicon-chevron-down"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a asp-area="" asp-controller="Account" asp-action="Logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+                                <li class="nav-item">
+                                    <a class="text-dark" class="nav-link" asp-controller="Blog" asp-action="Index">Blogs</a>
+                                </li>
                             </ul>
                         </li>
                     }
@@ -77,6 +79,11 @@
                             </div>
                         </li>
 
+
+                        <li class="nav-item">
+                            <a class="text-dark" class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
+
                     }
 
                 </ul>
@@ -84,7 +91,7 @@
          
 
         </nav>
-    </header>
+ </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

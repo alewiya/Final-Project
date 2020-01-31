@@ -13,33 +13,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
-    //[Authorize]
+    [Authorize]
    
    
     public class BlogController : Controller
     {
+        
         // GET: /<controller>/
         private readonly AccountDbContext context;
         public BlogController(AccountDbContext dbContext)
         {
             this.context = dbContext;
         }
-
+        [Authorize(Roles ="Pharmacy")]
         public IActionResult Index()
         {
             IList<Blog> blogs = context.Blogs.Include(p => p.User).ToList();
             return View(blogs);
         }
-       
+        [Authorize]
         public IActionResult AddPost(string name)
         {
             NewPostViewModel newPost = new NewPostViewModel();
-            User newUser = context.Users.Single(x => x.Name == name);
+            User newUser = context.Users.Single(x => x.Name == User.Identity.Name);
             newPost.UserID = newUser.ID;
             return View(newPost);
         }
     
         [HttpPost]
+       [Authorize(Roles = "User")]
         public IActionResult AddPost(NewPostViewModel model)
         {
             if (ModelState.IsValid)
@@ -60,7 +62,7 @@ namespace FinalProject.Controllers
                 };
                 context.Blogs.Add(newPost);
                 context.SaveChanges();
-                return Redirect("/Blog");
+                return Redirect("/Users/ViewBlog");
             }
             return View(model);
 
@@ -75,9 +77,6 @@ namespace FinalProject.Controllers
             ViewBag.title = "Users in Blog:" + thePost.Name;
             return View("Index", thePost.Blogs);
         }
-        public IActionResult Place()
-        {
-            return View();
-        }
+       
     }
 }

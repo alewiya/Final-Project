@@ -30,6 +30,16 @@ namespace FinalProject.Controllers
             return View(users);
               
         }
+        public IActionResult ViewBlog(int id)
+        {
+            if (id == 0)
+            {
+                return View();
+            }
+            User newPost = context.Users.Single(x => x.ID == id);
+            IList<Blog> blogs = context.Blogs.Where(x => x.UserID == id).ToList();
+            return View(blogs);
+        }
 
         
         

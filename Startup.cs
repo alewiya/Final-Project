@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject
 {
@@ -38,7 +39,7 @@ namespace FinalProject
             });
             services.AddDbContext<AccountDbContext>(options =>
      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-           /* services.Configure<CookiePolicyOptions>(options =>
+            services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.  
                 options.CheckConsentNeeded = context => true;
@@ -47,9 +48,9 @@ namespace FinalProject
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie( //CookieAuthenticationDefaults.AuthenticationScheme,
                     options => {
                         options.LoginPath = "/Account/Login";//create path so that to use this path instead of the defualt route.
-                    });*/
+                    });
             services.AddControllersWithViews();
-            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
         }
 
@@ -69,16 +70,21 @@ namespace FinalProject
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseRouting();
+           
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            /*  app.UseEndpoints(endpoints =>
+              {
+                  endpoints.MapControllerRoute(
+                      name: "default",
+                      pattern: "{controller=Home}/{action=Index}/{id?}");
+              });*/
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 

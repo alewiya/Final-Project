@@ -1,0 +1,21 @@
+﻿@model IList<FinalProject.Models.Blog>
+<p>Hi</p>
+@foreach (var blog in Model)
+{
+    <div class="post-heading">
+        <h2>Medicine Name</h2>
+        <h2>@blog.MedicineName</h2>
+
+        @if (blog.Name != null)
+        {
+         @:Posted by<i>@blog.Name</i>
+        }
+        <p>@blog.Description</p>
+        <h4>Address</h4>
+        <p>@blog.StreetNumberAndName,@blog.City,@blog.State,@blog.ZipCode</p>
+        <h4>Posted on </h4><i>@blog.PostTime</i>
+
+
+    </div>
+}
+

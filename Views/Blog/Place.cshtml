@@ -1,8 +1,41 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <title></title>
+    <title>Simple Map</title>
+    <style>
+         #map {
+             height: 100%;
+         }
+         /* Optional: Makes the sample page fill the window. */
+         html, body {
+             height: 100%;
+             margin: 0;
+             padding: 0;
+         }
+    </style>
 </head>
 <body>
+    <div id="map"></div>
+    <script>
+        var map;
+        function initMap() {
+            var location = { lat: 38.627003, lng: -90.199402 };
+            map = new google.maps.Map(document.getElementById('map'), {
+                
+                zoom: 4,
+                center:location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8Nje4_5TA-TS_SlKwHv2Dfx9fx3UfPPA&callback=initMap">
+
+  </script>
+
 
 </body>
+
 </html>

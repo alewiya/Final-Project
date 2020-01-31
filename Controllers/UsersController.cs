@@ -37,7 +37,8 @@ namespace FinalProject.Controllers
                 return View();
             }
             User newPost = context.Users.Single(x => x.ID == id);
-            IList<Blog> blogs = context.Blogs.Where(x => x.UserID == id).ToList();
+             IList<Blog> blogs = context.Blogs.Where(x => x.UserID == id).ToList();
+            //User thePost = context.Users.Include(x => x.Blogs).Single(x => x.ID == id);
             return View(blogs);
         }
 

@@ -96,7 +96,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Blog", b =>
                 {
-                    b.HasOne("FinalProject.Models.User", "Users")
+                    b.HasOne("FinalProject.Models.User", "User")
                         .WithMany("Blogs")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);

@@ -109,6 +109,7 @@ namespace FinalProject.Controllers
             SignupViewModel createAccount = new SignupViewModel();
             return View(createAccount);
         }
+        
         [HttpPost]
         public IActionResult Signup(SignupViewModel createAccount)
         {
@@ -136,7 +137,7 @@ namespace FinalProject.Controllers
                 };
                 context.Pharmacies.Add(newPharmacy);
                 context.SaveChanges();
-                return Redirect("Home/Index" + newPharmacy.PharmacyName);
+                return Redirect("/Account/Signin");
             }
             return View(createAccount);
         }
@@ -168,8 +169,8 @@ namespace FinalProject.Controllers
                 };
                 context.Users.Add(newUser);
                 context.SaveChanges();
-                return Redirect("Home/Index" + newUser.Name);
-
+                // return Redirect("Index?userName=" + newUser.Name);
+                return Redirect("/Account/Login");
 
             }
 

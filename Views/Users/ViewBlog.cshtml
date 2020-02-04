@@ -1,27 +1,89 @@
-﻿@model IList<FinalProject.Models.Blog>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
+﻿@model FinalProject.ViewModels.ViewBlogPostViewModel
+<html>
+<head>
+    <style>
+         :root {
+            --input-padding-x: 1.5rem;
+            --input-padding-y: .75rem;
+        }
+
+        body {
+            background: #8076a3;
+            background: linear-gradient(to right, #4f5f76, #091f36, #0f2862);
+        }
+
+        .card-signin {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        }
+
+            .card-signin .card-title {
+                margin-bottom: 2rem;
+                font-weight: 300;
+                font-size: 1.5rem;
+            }
+
+            .card-signin .card-body {
+                padding: 2rem;
+            }
+
+        .form-signin {
+            width: 400px;
+        }
+
+            .form-signin .btn {
+                font-size: 80%;
+                border-radius: 5rem;
+                letter-spacing: .1rem;
+                font-weight: bold;
+                padding: 1rem;
+                transition: all 0.2s;
+            }
+
+    </style>
+
+    </style>
+</head>
+<body>
+    @foreach (var blog in Model.Blogs)
+    {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
+                    <div class="card card-signin my-5">
                     <div class="card-body">
-                        @foreach (var post in Model)
-                            {
-                            <div class="post-heading">
-                                <h2>Medicine Name</h2>
-                                <h2>@post.MedicineName</h2>
+                        <h3>Medicine Name</h3>
+                        <h6>@blog.MedicineName</h6>
 
-                                @if (post.Name != null)
-                                {
-                                    @:Posted by<i>@post.Name</i>
-                                }
-                                <p>@post.Description</p>
-                                <h4>Address</h4>
-                                <p>@post.StreetNumberAndName,@post.City,@post.State,@post.ZipCode</p>
-                                <h4>Posted on </h4><i>@post.PostTime</i>
-
-
-                            </div>
+                        @if (blog.Name != null)
+                        {
+                            @:Posted by<i>@blog.Name</i>
                         }
-                        </div>
+                        <h3>Description</h3>
+                        <h6>@blog.Description</h6>
+                        <h3>Address</h3>
+                        <h6>
+                            @blog.StreetNumberAndName,@blog.City,@blog.State,
+                            @blog.ZipCode
+                        </h6>
+                        <h3>Posted on </h3><i>@blog.PostTime</i>
+
+                        <p><a asp-controller="Blog" asp-route-id="@blog.ID" asp-action="Edit">Edit</a><a asp-controller="Blog" asp-action="RemovePost">|Remove</a></p>
                     </div>
                 </div>
+            </div>
+        </div>
+       </div>
+
+
+
+
+
+    }
+</body>
+    </html>
+
+
+

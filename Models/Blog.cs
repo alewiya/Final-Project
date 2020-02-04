@@ -7,6 +7,7 @@ namespace FinalProject.Models
 {
     public class Blog
     {
+        public int ID { get; set; }
         public string  MedicineName { get; set; }
         public string Description { get; set; }
         public string StreetNumberAndName { get; set; }
@@ -14,7 +15,7 @@ namespace FinalProject.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
         public DateTime PostTime { get; set; }
-        public int ID { get; set; }
+       
        //foregin key
         public int UserID { get; set; }
         public User User { get; set; }//navgation property

@@ -1,0 +1,30 @@
+﻿<html>
+<head>
+    <style>
+        :root {
+            --input-padding-x: 1.5rem;
+            --input-padding-y: .75rem;
+        }
+
+        body {
+            background: #478559;
+            background: linear-gradient(to right, #4f5f76, #39a0ca, #f95d9b,#161748);
+        }
+    </style>
+</head>
+<body>
+<h1>@ViewBag.title</h1>
+
+<form method="post">
+
+    @foreach (var blog in ViewBag.blogs)
+    {
+        <input type="checkbox" name="blogIds" id="@blog.ID" value="@blog.ID" />
+        <label for="@blog.ID">@blog.MedicineName</label>
+        <br />
+    }
+
+    <input type="submit" value="Remove Selected Post" />
+</form>
+</body>
+</html>

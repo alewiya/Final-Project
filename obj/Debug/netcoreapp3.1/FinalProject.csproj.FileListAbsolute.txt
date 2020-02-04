@@ -60,4 +60,5 @@ C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Place.cshtml.g.cs
 C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Map.cshtml.g.cs
 C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Users\ViewBlog.cshtml.g.cs
-C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Logout.cshtml.g.cs
+C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Edit.cshtml.g.cs
+C:\Users\13146\lc101\c#\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\RemovePost.cshtml.g.cs

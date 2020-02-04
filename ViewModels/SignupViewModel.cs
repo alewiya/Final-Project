@@ -40,10 +40,10 @@ namespace FinalProject.ViewModels
         //[RegularExpression("^[0-9{1,5}$+ [^ ]+^[a-zA-Z]+$", ErrorMessage = "Please Insert Correct Street Number and Street Name" )]
         public string StreetNumberAndName { get; set; }
         [Required]
-        [RegularExpression("^[a-zA-Z]+$",ErrorMessage= "Please Insert valid City Name")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage= "Please Insert valid City Name")]
         public string City { get; set; }
         [Required]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Please Insert Valid State Name")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Please Insert State Name")]
         public string State { get; set; }
         [Required]
         [RegularExpression("^[0-9]{5,5}$", ErrorMessage = "Please Insert Valid PostCode")]

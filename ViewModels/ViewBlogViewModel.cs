@@ -7,6 +7,6 @@ namespace FinalProject.ViewModels
 {
     public class ViewBlogViewModel
     {
-        public 
+        public
     }
 }

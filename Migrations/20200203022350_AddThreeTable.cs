@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FinalProject.Migrations
 {
-    public partial class AddRelationalData : Migration
+    public partial class AddThreeTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

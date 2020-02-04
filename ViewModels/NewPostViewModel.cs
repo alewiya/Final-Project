@@ -17,7 +17,7 @@ namespace FinalProject.ViewModels
         [Display(Name = "Street Number and Name")]
         public string StreetNumberAndName { get; set; }
         [Required]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Please Insert valid City Name")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Please Insert valid City Name")]
         public string City { get; set; }
         [Required]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Please Insert Valid State Name")]

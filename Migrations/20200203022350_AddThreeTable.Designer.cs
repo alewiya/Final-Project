@@ -11,8 +11,8 @@ using System;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(AccountDbContext))]
-    [Migration("20200124185731_AddRelationalData")]
-    partial class AddRelationalData
+    [Migration("20200203022350_AddThreeTable")]
+    partial class AddThreeTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,7 +97,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Blog", b =>
                 {
-                    b.HasOne("FinalProject.Models.User", "Users")
+                    b.HasOne("FinalProject.Models.User", "User")
                         .WithMany("Blogs")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);

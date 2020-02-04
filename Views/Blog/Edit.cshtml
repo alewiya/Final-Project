@@ -1,0 +1,59 @@
+﻿@model FinalProject.ViewModels.EditPostViewModel
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-13">
+                <div class="card-body">
+
+                    <h3 class="card-title text-center">
+                        Edit Post
+                    </h3>
+
+                    <form asp-controller="Blog" asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="BlogId" />
+                        <div class="form-group">
+                            <label asp-for="MedicineName"></label>
+                            <input asp-for="MedicineName" class="form-control" placeholder="Enter Name of Medicine for pickup " />
+                            <span asp-validation-for="MedicineName" style="color:red;"></span>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label asp-for="Description"></label>
+                            <textarea asp-for="Description" class="form-control" placeholder="Enter Description about medicine"></textarea>
+                            <span asp-validation-for="Description" style="color:red;"></span>
+                        </div>
+                        Address
+
+                        <div class="form-group">
+                            <label asp-for="StreetNumberAndName"></label>
+                            <input asp-for="StreetNumberAndName" class="form-control" placeholder="Enter Street Number and Name " />
+                            <span asp-validation-for="StreetNumberAndName" style="color:red;"></span>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label asp-for="City"></label>
+                            <input asp-for="City" class="form-control" placeholder="Enter Name of City" />
+                            <span asp-validation-for="City" style="color:red;"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="State"></label>
+                            <input asp-for="State" class="form-control" placeholder="Enter Name of State" />
+                            <span asp-validation-for="State" style="color:red;"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="ZipCode"></label>
+                            <input asp-for="ZipCode" class="form-control" placeholder="Enter Zipcode" />
+                            <span asp-validation-for="ZipCode" style="color:red;"></span>
+                        </div>
+
+                        <input type="submit" value="Edit Post" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

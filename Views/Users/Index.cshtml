@@ -1,12 +1,28 @@
 ﻿@model List<FinalProject.Models.User>
-@{
-}
-<h1>Users Name</h1>
+<html>
+<head>
+    <style>
+ <style>
+         :root {
+            --input-padding-x: 1.5rem;
+            --input-padding-y: .75rem;
+        }
 
-<ul>
-    @foreach (var user in Model)
+        body {
+            background: #648880;
+            background: linear-gradient(to right, #c2dde6, #bccbde, #431c5d,#cdd422);
+        }
+    </style>
+</head>
+<body>
+    <h1>Users Name</h1>
 
-    {
-        <li><a asp-controller="Blog" asp-action="Users" asp-route-id="@user.ID">@user.Name</a></li>
-    }
-</ul>
+    <ul>
+        @foreach (var user in Model)
+
+        {
+            <li><a asp-controller="Blog" asp-action="Users" asp-route-id="@user.ID">@user.Name</a></li>
+        }
+    </ul>
+</body>
+</html>

@@ -6,6 +6,7 @@ using FinalProject.Data;
 using FinalProject.Models;
 using FinalProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,8 +18,7 @@ namespace FinalProject.Controllers
    
    
     public class BlogController : Controller
-    {
-        
+    {   
         // GET: /<controller>/
         private readonly AccountDbContext context;
         public BlogController(AccountDbContext dbContext)
@@ -31,7 +31,7 @@ namespace FinalProject.Controllers
             IList<Blog> blogs = context.Blogs.Include(p => p.User).ToList();
             return View(blogs);
         }
-        [Authorize]
+        [Authorize(Roles ="User")]
         public IActionResult AddPost(string name)
         {
             NewPostViewModel newPost = new NewPostViewModel();
@@ -62,7 +62,10 @@ namespace FinalProject.Controllers
                 };
                 context.Blogs.Add(newPost);
                 context.SaveChanges();
-                return Redirect("/Users/ViewBlog");
+                return Redirect($"/Users/ViewBlog?id={user.ID}");
+                //TempData["id"] = user.ID;
+                //return RedirectToAction("/Users/ViewBlog");
+
             }
             return View(model);
 
@@ -78,5 +81,55 @@ namespace FinalProject.Controllers
             return View("Index", thePost.Blogs);
         }
        
+        public IActionResult Edit(int id)
+        {
+            Blog posts = context.Blogs.Single(c => c.ID == id);
+            EditPostViewModel editPost = new EditPostViewModel(posts);
+            return View(editPost);
+        }
+        [HttpPost]
+        public IActionResult Edit(EditPostViewModel editPost)
+        {
+            if (ModelState.IsValid)
+            {
+                Blog posts = context.Blogs.Single(p => p.ID == editPost.BlogId);
+                posts.MedicineName = editPost.MedicineName;
+                posts.Description = editPost.Description;
+                posts.StreetNumberAndName = editPost.StreetNumberAndName;
+                posts.City = editPost.City;
+                posts.State = editPost.State;
+                posts.ZipCode = editPost.ZipCode;
+                posts.PostTime = DateTime.Now;
+
+                context.SaveChanges();
+                //return Redirect("Index");
+
+                // find a way to retrieve the user id to pass into the view
+                User user = context.Users.Single(x => x.Name == User.Identity.Name);
+
+                return Redirect($"/Users/ViewBlog?id={user.ID}");
+            }
+            return View(editPost);
+        }
+        public IActionResult RemovePost()
+        {
+            ViewBag.title = "Delete Post";
+            ViewBag.blogs = context.Blogs.ToList();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult RemovePost(int[] blogIds)
+        {
+            foreach(int blogId in blogIds)
+            {
+                Blog thePost = context.Blogs.Single(p => p.ID == blogId);
+                context.Blogs.Remove(thePost);
+            }
+            context.SaveChanges();
+            User user = context.Users.Single(x => x.Name == User.Identity.Name);
+
+            return Redirect($"/Users/ViewBlog?id={user.ID}");
+            //return Redirect("/Index");
+        }
     }
 }

@@ -5,10 +5,11 @@ by they role.
 * Users Tasks:Create posts,Edit posts,Remove post,and see Drop Off places.
 * Pharmacy Tasks:Check Created posts and pickup Unwanted medicines.
 Technologies:-
-*I built a Website using C# ASP.Net Core MVC application, with persistent data stored in an Entity Framework SQLServer database, 
+I built a Website using C# ASP.Net Core MVC application, with persistent data stored in an Entity Framework SQLServer database, 
 styled with Bootstrap and Css.
-While i was working on project i learned:-
-*Authentication and Authorazation using identity
-*Enhanced security and validation.
+
+While i was working on project i learned:-Authentication and Authorazation using identity,
+Enhanced security and validation.
+
 Remaining Features:-giveing notification for pharmacies whether posted medicine is picked or not, implementing google map,and
 showing  individual blog.

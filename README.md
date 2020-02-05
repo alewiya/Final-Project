@@ -7,7 +7,7 @@ by they role.
 
 
 Technologies:-
-I built a Website using C# ASP.Net Core MVC application, with persistent data stored in an Entity Framework SQLServer database, 
+I built this Website using C# ASP.Net Core MVC application, with persistent data stored in an Entity Framework SQLServer database, 
 styled with Bootstrap and Css.
 
 While i was working on project i learned:-Authentication and Authorazation using identity,

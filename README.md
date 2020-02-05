@@ -1,4 +1,4 @@
-The use of Disposal of Unwanted Medicines 
+The important of Dispose Unwanted Medicines 
 
 The purpose of to collect unwanted, expired and left over medicine from the communities. Using this app the user can identify location for drop off or request the authorized organization for pick up the medicine from home. To request for pick up the user will create personal account and blog post description or type of medicine want to dispose and address of pick up. For example, if he/she want to request medicine pick up from home, he/she can write on blog and it will show up at authorized pharmacy. This app especially help senior citizens; disable person and someone do not have transportation access to drop off unwanted or expired medicine and also it reduce environmental contamination.
 Features:-
